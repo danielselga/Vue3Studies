@@ -1,0 +1,18 @@
+Classes dinamicas são passadas dentro de um v-for, no exemplo temos dentro de um objeto, um parametro chave valor, onde a chave
+se chama isFav e o valor é do tipo boolean true.
+
+Para passamos essa classe dinamica dentro do objeto precisamos bindar o class com o v-bind:class ou :class e declarar :class="{fav: isFav}"
+assim os objetos que pessuem isfav: true vão receber essa classe.
+
+CHALLENGE:
+
+Criamos uma função => switchFav(book) {
+                        book.isFav = !book.isFav. -> Não precisamos usar o this pois a entrada no escopo de book é feita via parametro pegando o book do v-for.    
+                    
+
+
+COMPUTED:
+
+As funções computed são disparadas sempre que os parametros dela são alteradas.
+
+E um jeito de definir as propriedades de dados dentro dos componentes, ele depende dos componentes dentro da função.

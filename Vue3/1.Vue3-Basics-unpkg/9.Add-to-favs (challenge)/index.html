@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MyVue App</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <h1>My Book Store</h1>
+
+    <div id="app">
+
+        <a v-bind:href="url">The Best Web Site </a> 
+        <!-- para acrescentarmos logica a uma propriedade nós precisamos usar o v-bind, -->
+        <!-- : é uma shortcurt para o v-bind. -->
+        <div v-if="showBooks">
+            <ul>
+                <li v-for="book in books" :class="{fav: book.isFav}" @click="switchFav(book)">
+                    <!-- Aqui ele está passando declarando uma classe "FAV" para todos os objetos que possuem uma chave "isFav: true" -->
+                    <img :src="book.img" alt="BookImg">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                </li>
+            </ul>
+        </div>
+
+        <button @click="toggleShowBooks()">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else="!showBooks">show Books</span>
+        </button>
+
+    </div> 
+
+    <script src="app.js"></script>
+</body>
+</html>
